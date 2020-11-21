@@ -33,11 +33,11 @@ function Item({ title, price, desc, img, id }) {
       <h3 style={{ textAlign: "center", fontSize: "24px", margin: "1% 0" }}>
         {title}
       </h3>
-      <p style={{ marginLeft: "5%" }}>
+      <p className='ml-4' style={{ height: "50px" }}>
         <em>{desc}</em>
       </p>
-      <h4 style={{ marginLeft: "5%" }}>{price} €</h4>
-      <div style={{ textAlign: "center" }}>
+      <h4 className='ml-4 mb-5'>{price} €</h4>
+      <div className='text-center'>
         <button
           className='button_buy'
           onClick={() => addToCart(title, price, id, img)}

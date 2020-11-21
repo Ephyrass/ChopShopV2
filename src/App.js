@@ -6,6 +6,7 @@ import ProductItem from "./components/shop/ProductItem";
 import Cart from "./components/cart/Cart";
 import Profile from "./components/Profile/Profile";
 import ContextProvider from "./components/Context/ContextProvider";
+import "./tailwind.output.css";
 
 function App() {
   return (

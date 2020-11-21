@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: whitesmoke;
+  background-color: #f2f2fb;
 }
 
 code {
@@ -15,25 +15,12 @@ code {
 }
 
 header {
-  display: flex;
-  justify-content: space-around;
   color: rgba(0, 255, 170, 0.787);
-  background-color: rgb(104, 104, 104);
 }
 
 .logo {
   text-decoration: none;
   color: rgb(251, 251, 251);
-}
-
-.navigation ul {
-  display: flex;
-  justify-content: space-around;
-  width: 200px;
-  margin: 0;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .navigation li {
@@ -43,17 +30,9 @@ header {
   text-decoration: none;
   color: rgba(0, 255, 170, 0.787);
 }
-.navigation a:hover {
-  color: aquamarine;
-}
-
-.shop_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
 
 .item {
+  width: 300px;
   margin: 0 3%;
   margin-top: 3%;
   box-shadow: 0px 0px 5px 0px lightgray;
@@ -101,22 +80,11 @@ header {
 }
 
 .cart .cart-title {
-  display: none;
-}
-.cart h3 {
-  display: none;
-}
-.cart .price {
-  display: none;
-}
-.cart .close-cart {
-  display: none;
+  display: none !important;
 }
 
-.cart-active .cart-title,
-h3,
-.price {
-  display: block;
+.cart .cart-container {
+  display: none;
 }
 
 .cart-active {
@@ -148,6 +116,7 @@ h3,
 .cart-title {
   display: flex !important;
   justify-content: center;
+  align-items: center;
 }
 
 .cart-title-empty {
@@ -156,6 +125,38 @@ h3,
 
 .card-img {
   max-width: 60px;
+  margin: 5px;
+}
+
+.delete-product {
+  font-size: 24px;
+  margin-left: 1rem;
+  cursor: pointer;
+  color: brown;
+}
+
+.quantity-button {
+  width: 30px;
+  margin: 2px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+}
+
+.pay_button {
+  margin-top: 5rem;
+  cursor: pointer;
+  background-color: black;
+  border: none;
+  font-size: 20px;
+  height: 40px;
+  padding: 0 2rem;
+  color: white;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .single_product {
@@ -174,6 +175,14 @@ h3,
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.profile {
+  margin: 0 15%;
+}
+
+.input-settings {
+  width: 80%;
 }
 
 @keyframes slidein {

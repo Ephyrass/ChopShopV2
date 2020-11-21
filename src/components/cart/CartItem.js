@@ -28,14 +28,17 @@ function CartItem({ product, price, setPrice, item, setItem }) {
         <h4>
           {product.title} - {product.price}€ <span>x</span>{" "}
           <button
+            className='quantity-button'
             onClick={() => {
               updateProductQty(-1, product.price);
             }}
           >
-            -
+            {" "}
+            -{" "}
           </button>
           {product.unit}
           <button
+            className='quantity-button'
             onClick={() => {
               updateProductQty(+1, product.price);
             }}
@@ -44,7 +47,9 @@ function CartItem({ product, price, setPrice, item, setItem }) {
           </button>
         </h4>{" "}
         <img className='card-img' src={product.img} alt={product.title} />
-        <span onClick={deleteProduct}>x</span>
+        <span className='delete-product' onClick={deleteProduct}>
+          x
+        </span>
       </div>
     </>
   );

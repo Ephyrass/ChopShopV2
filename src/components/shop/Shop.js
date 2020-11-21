@@ -24,11 +24,12 @@ const Shop = () => {
       id: 3,
       title: "Air Jordan",
       img: Jordan,
-      desc: "Basket Enfant Air Jordan",
+      desc:
+        "Basket Enfant Air Jordan même qu'elles sont super top de la mort qui tue",
       price: 109.59,
     },
     {
-      id: 6,
+      id: 4,
       title: "Adidas 247",
       img: Adidas,
       desc: "Basket pour Homme 247",
@@ -52,7 +53,7 @@ const Shop = () => {
         >
           Shop
         </h2>
-        <div className='shop_container'>
+        <div className='flex justify-evenly flex-wrap'>
           {items.map((item) => (
             <Item
               key={item.id}
