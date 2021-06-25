@@ -2,12 +2,14 @@ import React from "react";
 import { CartContext } from "./Context/ContextProvider";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./Context/AuthProvider";
 
 const Header = () => {
-  const cartContext = useContext(CartContext);
+  const { setShowCart, showCart, item } = useContext(CartContext);
+  const { auth } = useContext(AuthContext);
 
   const handleClick = () => {
-    cartContext.setShowCart(!cartContext.showCart);
+    setShowCart(!showCart);
   };
 
   return (
@@ -22,19 +24,27 @@ const Header = () => {
               Shop
             </li>
           </Link>
-          <Link to='/profile'>
-            <li className='px-5 py-2 hover:text-white hover:bg-gray-700 rounded cursor-pointer'>
-              Profile
-            </li>
-          </Link>
+          {!auth ? (
+            <div>
+              <Link to='/login'>
+                <li className='px-5 py-2 hover:text-white hover:bg-gray-700 rounded cursor-pointer'>
+                  Login
+                </li>
+              </Link>{" "}
+            </div>
+          ) : (
+            <Link to='/profile'>
+              <li className='px-5 py-2 hover:text-white hover:bg-gray-700 rounded cursor-pointer'>
+                Profile
+              </li>
+            </Link>
+          )}
+
           <li
             className='px-5 py-2 hover:text-white hover:bg-gray-700 rounded cursor-pointer'
             onClick={handleClick}
           >
-            Cart{" "}
-            {cartContext.item.length === 0 ? null : (
-              <>| {cartContext.item.length}</>
-            )}
+            Cart {item.length === 0 ? null : <>| {item.length}</>}
           </li>
         </ul>
       </nav>

@@ -31,6 +31,10 @@ header {
   color: rgba(0, 255, 170, 0.787);
 }
 
+nav.p {
+  border: 1px solid lightgray;
+}
+
 .item {
   width: 300px;
   margin: 0 3%;
@@ -179,6 +183,7 @@ header {
 
 .profile {
   margin: 0 15%;
+  min-height: 85vh;
 }
 
 .input-settings {
@@ -200,5 +205,11 @@ header {
   }
   to {
     transform: translateX(100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .profile {
+    margin: 0;
   }
 }

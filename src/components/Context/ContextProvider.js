@@ -21,8 +21,6 @@ function ContextProvider({ children }) {
       setItem((array) => [...array, product]);
       setPrice(price + product.price);
     }
-    setShowCart(true);
-    console.log(product);
   };
 
   return (

@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
+import { createOrder } from "../Action/Order";
+import { AuthContext } from "../Context/AuthProvider";
 import { CartContext } from "../Context/ContextProvider";
 import CartItem from "./CartItem";
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
   const { item, setItem, showCart, setShowCart, price, setPrice } = cartContext;
+  const { token } = useContext(AuthContext);
 
-  const handleCheckout = () => {
+  const handleCheckout = (token, item, price) => {
+    createOrder(token, item, price);
     alert("Thank you for your purchase");
     setItem([]);
     setPrice(0);
@@ -41,10 +45,13 @@ const Cart = () => {
             );
           })
         )}
-        <h4 className='price mx-auto'>{`Total : ${price.toFixed(2)} €`}</h4>
+        <h4 className='price '>{`Total : ${price.toFixed(2)} €`}</h4>
 
         {item.length < 1 ? null : (
-          <button className='pay_button' onClick={() => handleCheckout()}>
+          <button
+            className='pay_button'
+            onClick={() => handleCheckout(token, item, price)}
+          >
             Checkout
           </button>
         )}

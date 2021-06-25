@@ -7,20 +7,30 @@ import Cart from "./components/cart/Cart";
 import Profile from "./components/Profile/Profile";
 import ContextProvider from "./components/Context/ContextProvider";
 import "./tailwind.output.css";
+import Order from "./components/Profile/Order";
+import PrivateRoute from "./components/PrivateRoute";
+import Login from "./components/Auth/Login";
+import AuthProvider from "./components/Context/AuthProvider";
+import SignUp from "./components/Auth/SignUp";
 
 function App() {
   return (
     <Router>
       <div className='App'>
-        <ContextProvider>
-          <Header />
-          <Cart />
-          <Switch>
-            <Route exact path='/' component={Shop} />
-            <Route exact path='/profile' component={Profile} />
-            <Route exact path='/:item' component={ProductItem} />
-          </Switch>
-        </ContextProvider>
+        <AuthProvider>
+          <ContextProvider>
+            <Header />
+            <Cart />
+            <Switch>
+              <Route exact path='/' component={Shop} />{" "}
+              <Route exact path='/shop/:item' component={ProductItem} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/signup' component={SignUp} />
+              <PrivateRoute exact path='/profile' component={Profile} />
+              <PrivateRoute exact path='/profile/order' component={Order} />
+            </Switch>
+          </ContextProvider>
+        </AuthProvider>
       </div>
     </Router>
   );

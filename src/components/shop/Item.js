@@ -10,7 +10,7 @@ function Item({ title, price, desc, img, id }) {
     <div className='item'>
       <Link
         to={{
-          pathname: `/${title}`,
+          pathname: `/shop/${title}`,
           state: {
             title: title,
             price: price,
